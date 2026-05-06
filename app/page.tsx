@@ -31,28 +31,22 @@ const projects = [
 
 const selectedProjects = [
   {
-    title: "Geometry-Aware Federated LoRA",
+    title: "Federated Learning Smart Systems",
     description:
-      "Investigating low-rank adaptation geometry and instability signals in heterogeneous federated learning.",
-    href: "/projects/federated-lora-geometry",
-  },
-  {
-    title: "Drift-Aware Adaptive Aggregation",
-    description:
-      "Studying aggregation strategies that respond dynamically to client drift and instability.",
-    href: "/projects/drift-aware-aggregation",
-  },
-  {
-    title: "Personalization Depth in Federated Learning",
-    description:
-      "Analyzing client-specific personalization depth and oracle routing headroom in heterogeneous federated environments.",
-    href: "/projects/personalization-depth-federated-learning",
+      "Investigating optimization stability, update geometry, and robust training behaviour in federated learning systems under heterogeneous client environments.",
+    href: "/projects/federated-learning-smart-systems",
   },
   {
     title: "Reproducible ML Infrastructure",
     description:
       "Engineering publication-grade ML systems for scalable experimentation and research reproducibility.",
     href: "/projects/reproducible-ml-infrastructure",
+  },
+  {
+    title: "Personalization Depth in Federated Learning",
+    description:
+      "Analyzing client-specific personalization depth and oracle routing headroom in heterogeneous federated environments.",
+    href: "/projects/personalization-depth-federated-learning",
   },
 ];
 
@@ -63,7 +57,6 @@ export default function Home() {
       <section className="border-b border-gray-200">
         <div className="mx-auto max-w-7xl px-6 md:px-10 py-20 md:py-24">
           <div className="grid lg:grid-cols-2 gap-14 items-center">
-            {/* LEFT */}
             <div>
               <p className="text-sm uppercase tracking-[0.28em] text-indigo-700 mb-6">
                 Privacy-Preserving Machine Learning
@@ -118,7 +111,6 @@ export default function Home() {
               </div>
             </div>
 
-            {/* RIGHT */}
             <div className="lg:justify-self-end">
               <div className="rounded-[2rem] border border-gray-200 bg-gray-50 p-4 shadow-sm">
                 <div className="overflow-hidden rounded-[1.5rem] border border-gray-200 bg-white">
@@ -290,9 +282,7 @@ export default function Home() {
             </div>
 
             <div>
-              <h3 className="text-2xl font-semibold mb-3">
-                Ongoing Output
-              </h3>
+              <h3 className="text-2xl font-semibold mb-3">Ongoing Output</h3>
 
               <p className="text-gray-700 text-lg leading-8">
                 Active work includes aggregation geometry, federated LoRA,
@@ -321,6 +311,7 @@ export default function Home() {
             <a
               href="https://github.com/vicobarafor"
               target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-indigo-700 transition"
             >
               GitHub
@@ -329,6 +320,7 @@ export default function Home() {
             <a
               href="https://uk.linkedin.com/in/victor-obarafor-phd-b73b96178"
               target="_blank"
+              rel="noopener noreferrer"
               className="hover:text-indigo-700 transition"
             >
               LinkedIn

@@ -2,32 +2,29 @@ import Link from "next/link";
 
 const projects = [
   {
-    title: "Geometry-Aware Federated LoRA",
+    title: "Federated Learning Smart Systems",
     description:
-      "Investigating how low-rank adaptation geometry evolves in federated learning under heterogeneous client distributions.",
-    tags: ["Federated Learning", "LoRA", "Optimization"],
-    href: "/projects/federated-lora-geometry",
+      "Investigating optimization stability, update geometry, and robust training behaviour in federated learning systems under heterogeneous client environments.",
+    tags: ["Federated Learning", "Optimization", "Distributed ML"],
+    href: "/projects/federated-learning-smart-systems",
   },
   {
-    title: "Drift-Aware Adaptive Aggregation",
+    title: "Reproducible ML Infrastructure",
     description:
-      "Researching aggregation mechanisms that adapt to update drift, instability, and client divergence in decentralized training.",
-    tags: ["Aggregation", "Robustness", "Distributed ML"],
-    href: "/projects/drift-aware-aggregation",
+      "Building clean, modular, and publication-grade ML systems for rigorous experimentation, benchmarking, and scalable research workflows.",
+    tags: ["Engineering", "Infrastructure", "Reproducibility"],
+    href: "/projects/reproducible-ml-infrastructure",
   },
   {
     title: "Personalization Depth in Federated Learning",
     description:
       "Analyzing how personalization depth influences convergence stability, representation learning, and robustness under heterogeneous federated environments.",
-    tags: ["Personalization", "Federated Learning", "Representation Learning"],
+    tags: [
+      "Personalization",
+      "Federated Learning",
+      "Representation Learning",
+    ],
     href: "/projects/personalization-depth-federated-learning",
-  },
-  {
-    title: "Reproducible ML Infrastructure",
-    description:
-      "Building clean, modular, and publication-grade ML systems for rigorous experimentation and scalable research workflows.",
-    tags: ["Engineering", "Infrastructure", "Reproducibility"],
-    href: "/projects/reproducible-ml-infrastructure",
   },
 ];
 
