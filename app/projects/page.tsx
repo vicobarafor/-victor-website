@@ -1,105 +1,91 @@
 import Link from "next/link";
 
+const projects = [
+  {
+    title: "Geometry-Aware Federated LoRA",
+    description:
+      "Investigating how low-rank adaptation geometry evolves in federated learning under heterogeneous client distributions.",
+    tags: ["Federated Learning", "LoRA", "Optimization"],
+    href: "/projects/federated-lora-geometry",
+  },
+  {
+    title: "Drift-Aware Adaptive Aggregation",
+    description:
+      "Researching aggregation mechanisms that adapt to update drift, instability, and client divergence in decentralized training.",
+    tags: ["Aggregation", "Robustness", "Distributed ML"],
+    href: "/projects/drift-aware-aggregation",
+  },
+  {
+    title: "Personalization Depth in Federated Learning",
+    description:
+      "Analyzing how personalization depth influences convergence stability, representation learning, and robustness under heterogeneous federated environments.",
+    tags: ["Personalization", "Federated Learning", "Representation Learning"],
+    href: "/projects/personalization-depth-federated-learning",
+  },
+  {
+    title: "Reproducible ML Infrastructure",
+    description:
+      "Building clean, modular, and publication-grade ML systems for rigorous experimentation and scalable research workflows.",
+    tags: ["Engineering", "Infrastructure", "Reproducibility"],
+    href: "/projects/reproducible-ml-infrastructure",
+  },
+];
+
 export default function ProjectsPage() {
   return (
-    <main className="min-h-screen bg-white text-black">
-      <section className="max-w-5xl mx-auto px-6 md:px-8 pt-24 pb-16">
-        <p className="text-sm uppercase tracking-[0.18em] text-indigo-700 mb-3 font-medium">
-          Projects
-        </p>
+    <main className="min-h-screen bg-[#f5f5f3] px-6 py-24">
+      <div className="mx-auto max-w-6xl">
+        <div className="mb-16">
+          <p className="text-sm uppercase tracking-[0.3em] text-indigo-600 mb-4">
+            Research Projects
+          </p>
 
-        <h1 className="text-4xl md:text-5xl font-bold tracking-tight mb-6">
-          Research & Projects
-        </h1>
-
-        <p className="text-base md:text-lg text-gray-700 leading-8 max-w-3xl">
-          A selection of research projects spanning privacy-preserving machine
-          learning, federated optimization, robust aggregation, and reproducible
-          machine learning systems.
-        </p>
-      </section>
-
-      <section className="bg-gray-50 border-y border-gray-200">
-        <div className="max-w-5xl mx-auto px-6 md:px-8 py-16">
-          <div className="grid gap-6">
-            <article className="rounded-2xl border border-gray-200 bg-white p-7 shadow-sm hover:shadow-lg transition duration-200">
-              <h2 className="text-2xl font-semibold mb-3">
-                <Link
-                  href="/projects/federated-learning-smart-systems"
-                  className="hover:text-indigo-700 transition"
-                >
-                  Geometry-Aware Federated LoRA under Heterogeneity
-                </Link>
-              </h2>
-
-              <p className="text-gray-700 leading-8 mb-4">
-                A research-grade study of federated fine-tuning for LoRA-based
-                language models, showing that early-round client update geometry
-                strongly predicts convergence quality under heterogeneous data
-                and motivating a geometry-aware aggregation strategy.
-              </p>
-
-              <Link
-                href="/projects/federated-learning-smart-systems"
-                className="underline underline-offset-4 hover:text-indigo-700 transition"
-              >
-                View project
-              </Link>
-            </article>
-
-            <article className="rounded-2xl border border-gray-200 bg-white p-7 shadow-sm hover:shadow-lg transition duration-200">
-              <h2 className="text-2xl font-semibold mb-3">
-                <Link
-                  href="/projects/reproducible-ml-infrastructure"
-                  className="hover:text-indigo-700 transition"
-                >
-                  Drift-Aware Adaptive Aggregation for Federated Learning
-                </Link>
-              </h2>
-
-              <p className="text-gray-700 leading-8 mb-4">
-                A federated learning project that introduces a lightweight
-                server-side aggregation rule which reweights client updates
-                based on their drift from the consensus direction, exposing a
-                simple and interpretable signal of instability under
-                heterogeneity.
-              </p>
-
-              <Link
-                href="/projects/reproducible-ml-infrastructure"
-                className="underline underline-offset-4 hover:text-indigo-700 transition"
-              >
-                View project
-              </Link>
-            </article>
-
-            <article className="rounded-2xl border border-gray-200 bg-white p-7 shadow-sm hover:shadow-lg transition duration-200">
-              <h2 className="text-2xl font-semibold mb-3">
-                <Link
-                  href="/projects/publication-standard-ml-systems"
-                  className="hover:text-indigo-700 transition"
-                >
-                  Reproducible ML Research Infrastructure
-                </Link>
-              </h2>
-
-              <p className="text-gray-700 leading-8 mb-4">
-                A research-engineering project focused on building clean,
-                reproducible, and publication-standard machine learning
-                workflows that support reliable experimentation, clearer
-                benchmarking, and stronger technical delivery.
-              </p>
-
-              <Link
-                href="/projects/publication-standard-ml-systems"
-                className="underline underline-offset-4 hover:text-indigo-700 transition"
-              >
-                View project
-              </Link>
-            </article>
-          </div>
+          <h1 className="text-5xl md:text-6xl font-semibold tracking-tight text-black max-w-4xl leading-tight">
+            Research systems focused on federated learning, personalization,
+            robustness, and reproducible machine learning.
+          </h1>
         </div>
-      </section>
+
+        <div className="grid gap-8 md:grid-cols-2">
+          {projects.map((project) => (
+            <article
+              key={project.title}
+              className="rounded-2xl border border-gray-200 bg-white p-8 shadow-sm hover:shadow-md transition"
+            >
+              <h2 className="text-2xl font-semibold mb-4 text-black">
+                <Link
+                  href={project.href}
+                  className="hover:text-indigo-700 transition"
+                >
+                  {project.title}
+                </Link>
+              </h2>
+
+              <p className="text-gray-700 leading-8 mb-6 text-lg">
+                {project.description}
+              </p>
+
+              <div className="flex flex-wrap gap-3 mb-8">
+                {project.tags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-gray-200 px-4 py-2 text-sm text-gray-700 bg-gray-50"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <Link
+                href={project.href}
+                className="underline underline-offset-4 hover:text-indigo-700 transition"
+              >
+                View project
+              </Link>
+            </article>
+          ))}
+        </div>
+      </div>
     </main>
   );
 }

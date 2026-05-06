@@ -1,28 +1,85 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const expertise = [
+  "Federated Learning",
+  "Privacy-Preserving ML",
+  "Robust Optimization",
+  "Research Systems",
+];
+
+const projects = [
+  {
+    eyebrow: "Research Focus",
+    title: "Federated & Privacy-Preserving ML",
+    description:
+      "Research spanning federated learning, decentralized optimization, privacy-aware training, and robust learning under client data heterogeneity.",
+  },
+  {
+    eyebrow: "Method Design",
+    title: "Aggregation & Optimization",
+    description:
+      "Designing adaptive aggregation mechanisms that use update structure, drift, and geometry signals to improve robustness in challenging federated settings.",
+  },
+  {
+    eyebrow: "Engineering Strength",
+    title: "Reproducible Research Systems",
+    description:
+      "Building clean, modular, and publication-grade machine learning infrastructure for rigorous experimentation, benchmarking, and technical delivery.",
+  },
+];
+
+const selectedProjects = [
+  {
+    title: "Geometry-Aware Federated LoRA",
+    description:
+      "Investigating low-rank adaptation geometry and instability signals in heterogeneous federated learning.",
+    href: "/projects/federated-lora-geometry",
+  },
+  {
+    title: "Drift-Aware Adaptive Aggregation",
+    description:
+      "Studying aggregation strategies that respond dynamically to client drift and instability.",
+    href: "/projects/drift-aware-aggregation",
+  },
+  {
+    title: "Personalization Depth in Federated Learning",
+    description:
+      "Analyzing client-specific personalization depth and oracle routing headroom in heterogeneous federated environments.",
+    href: "/projects/personalization-depth-federated-learning",
+  },
+  {
+    title: "Reproducible ML Infrastructure",
+    description:
+      "Engineering publication-grade ML systems for scalable experimentation and research reproducibility.",
+    href: "/projects/reproducible-ml-infrastructure",
+  },
+];
+
 export default function Home() {
   return (
-    <main className="min-h-screen bg-white text-black">
-      {/* Hero */}
-      <section className="border-b border-gray-200 bg-gradient-to-b from-white to-gray-50">
-        <div className="max-w-6xl mx-auto px-6 md:px-8 pt-20 pb-16">
-          <div className="grid lg:grid-cols-[1.2fr_0.8fr] gap-14 items-center">
-            <div className="max-w-4xl">
-              <p className="text-sm uppercase tracking-[0.22em] text-indigo-700 mb-5 font-medium">
+    <main className="min-h-screen bg-[#f5f5f3] text-black">
+      {/* HERO */}
+      <section className="border-b border-gray-200">
+        <div className="mx-auto max-w-7xl px-6 md:px-10 py-20 md:py-24">
+          <div className="grid lg:grid-cols-2 gap-14 items-center">
+            {/* LEFT */}
+            <div>
+              <p className="text-sm uppercase tracking-[0.28em] text-indigo-700 mb-6">
                 Privacy-Preserving Machine Learning
               </p>
 
-              <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-tight mb-6">
-                Dr Victor Obarafor <span className="whitespace-nowrap">(PhD)</span>
+              <h1 className="text-6xl md:text-7xl font-semibold tracking-tight leading-[0.95] mb-10">
+                Dr Victor Obarafor
+                <span className="block">(PhD)</span>
               </h1>
 
-              <p className="text-xl md:text-2xl text-gray-900 font-medium mb-7 leading-relaxed max-w-3xl">
+              <p className="text-2xl md:text-3xl leading-relaxed text-gray-900 max-w-3xl mb-10">
                 Building robust and privacy-preserving machine learning systems
                 for decentralized environments.
               </p>
 
-              <p className="text-base md:text-lg text-gray-700 leading-8 mb-10 max-w-3xl">
+              <p className="text-lg leading-9 text-gray-700 max-w-3xl mb-12">
                 I work at the intersection of federated learning,
                 privacy-preserving machine learning, robust optimization, and
                 reproducible research systems. My research focuses on
@@ -35,51 +92,42 @@ export default function Home() {
               <div className="flex flex-wrap gap-4 mb-10">
                 <Link
                   href="/projects"
-                  className="inline-flex items-center rounded-full bg-black text-white px-6 py-3.5 text-sm font-medium shadow-sm hover:bg-gray-800 hover:shadow-md transition"
+                  className="rounded-full bg-black text-white px-6 py-3 text-sm font-medium hover:bg-gray-800 transition"
                 >
-                  View Research
-                </Link>
-
-                <Link
-                  href="/cv"
-                  className="inline-flex items-center rounded-full border border-gray-300 bg-white px-6 py-3.5 text-sm font-medium text-gray-900 hover:border-indigo-700 hover:text-indigo-700 hover:shadow-sm transition"
-                >
-                  Download CV
+                  View Projects
                 </Link>
 
                 <a
-                  href="mailto:vicobarafor@gmail.com"
-                  className="inline-flex items-center rounded-full border border-gray-300 bg-white px-6 py-3.5 text-sm font-medium text-gray-900 hover:border-indigo-700 hover:text-indigo-700 hover:shadow-sm transition"
+                  href="/cv.pdf"
+                  target="_blank"
+                  className="rounded-full border border-gray-300 px-6 py-3 text-sm font-medium hover:border-black transition"
                 >
-                  Contact
+                  View CV
                 </a>
               </div>
 
-              <div className="flex flex-wrap gap-3 text-sm text-gray-700">
-                <span className="rounded-full border border-gray-200 bg-white px-4 py-2 shadow-sm">
-                  Federated Learning
-                </span>
-                <span className="rounded-full border border-gray-200 bg-white px-4 py-2 shadow-sm">
-                  Privacy-Preserving ML
-                </span>
-                <span className="rounded-full border border-gray-200 bg-white px-4 py-2 shadow-sm">
-                  Robust Optimization
-                </span>
-                <span className="rounded-full border border-gray-200 bg-white px-4 py-2 shadow-sm">
-                  Research Systems
-                </span>
+              <div className="flex flex-wrap gap-4">
+                {expertise.map((item) => (
+                  <div
+                    key={item}
+                    className="rounded-full border border-gray-300 bg-white px-5 py-3 text-sm shadow-sm"
+                  >
+                    {item}
+                  </div>
+                ))}
               </div>
             </div>
 
+            {/* RIGHT */}
             <div className="lg:justify-self-end">
-              <div className="rounded-[28px] border border-gray-200 bg-gradient-to-b from-gray-50 to-white p-4 shadow-md">
-                <div className="overflow-hidden rounded-2xl bg-white border border-gray-200 shadow-sm">
+              <div className="rounded-[2rem] border border-gray-200 bg-gray-50 p-4 shadow-sm">
+                <div className="overflow-hidden rounded-[1.5rem] border border-gray-200 bg-white">
                   <Image
                     src="/profile.jpeg"
                     alt="Professional portrait of Dr Victor Obarafor"
                     width={900}
                     height={1100}
-                    className="w-full h-auto object-contain"
+                    className="w-full h-auto object-cover"
                     priority
                   />
                 </div>
@@ -88,7 +136,8 @@ export default function Home() {
                   <p className="text-lg font-semibold text-black">
                     Dr Victor Obarafor
                   </p>
-                  <p className="text-sm text-gray-600 mt-1">
+
+                  <p className="text-gray-600 mt-1">
                     Privacy-Preserving Machine Learning Researcher
                   </p>
                 </div>
@@ -98,322 +147,55 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Trust Strip */}
+      {/* STRIP */}
       <section className="border-b border-gray-200 bg-white">
-        <div className="max-w-6xl mx-auto px-6 md:px-8 py-5">
-          <div className="flex flex-wrap gap-x-8 gap-y-3 text-sm md:text-base text-gray-700">
-            <span>PhD Researcher</span>
-            <span>Federated Learning</span>
-            <span>Privacy-Preserving ML</span>
-            <span>Robust Aggregation</span>
-            <span>Reproducible Research Systems</span>
+        <div className="mx-auto max-w-7xl px-6 md:px-10 py-8">
+          <div className="grid md:grid-cols-5 gap-6 text-lg text-gray-800">
+            <div>PhD Researcher</div>
+            <div>Federated Learning</div>
+            <div>Privacy-Preserving ML</div>
+            <div>Robust Aggregation</div>
+            <div>Reproducible Research Systems</div>
           </div>
         </div>
       </section>
 
-      {/* Focus */}
-      <section className="bg-gray-50 border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-6 md:px-8 py-16">
-          <div className="grid md:grid-cols-3 gap-6">
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition">
-              <p className="text-sm text-indigo-700 font-medium mb-2">
-                Research Focus
-              </p>
-              <h2 className="text-xl font-semibold mb-3">
-                Federated & Privacy-Preserving ML
-              </h2>
-              <p className="text-gray-700 leading-7">
-                Research spanning federated learning, decentralized
-                optimization, privacy-aware training, and robust learning under
-                client data heterogeneity.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition">
-              <p className="text-sm text-indigo-700 font-medium mb-2">
-                Method Design
-              </p>
-              <h2 className="text-xl font-semibold mb-3">
-                Aggregation & Optimization
-              </h2>
-              <p className="text-gray-700 leading-7">
-                Designing adaptive aggregation mechanisms that use update
-                structure, drift, and geometry signals to improve robustness in
-                challenging federated settings.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm hover:shadow-md transition">
-              <p className="text-sm text-indigo-700 font-medium mb-2">
-                Engineering Strength
-              </p>
-              <h2 className="text-xl font-semibold mb-3">
-                Reproducible Research Systems
-              </h2>
-              <p className="text-gray-700 leading-7">
-                Building clean, modular, and publication-grade machine learning
-                infrastructure for rigorous experimentation, benchmarking, and
-                technical delivery.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Current Research */}
-      <section className="bg-white border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-6 md:px-8 py-16">
-          <div className="grid lg:grid-cols-[0.8fr_1.2fr] gap-10">
-            <div>
-              <p className="text-sm uppercase tracking-[0.18em] text-indigo-700 mb-3 font-medium">
-                Current Research
-              </p>
-              <h2 className="text-2xl md:text-3xl font-semibold tracking-tight leading-tight">
-                Research themes I’m actively building around
-              </h2>
-            </div>
-
-            <div className="grid gap-4">
-              <div className="rounded-2xl border border-gray-200 p-5 bg-white shadow-sm">
-                <h3 className="font-semibold mb-2">
-                  Reliable federated learning under heterogeneity
-                </h3>
-                <p className="text-gray-700 leading-7">
-                  Studying why decentralized training fails under non-IID client
-                  distributions and how update geometry, drift, and aggregation
-                  behavior reveal those failure modes.
+      {/* PROJECT CARDS */}
+      <section className="py-24">
+        <div className="mx-auto max-w-7xl px-6 md:px-10">
+          <div className="grid lg:grid-cols-3 gap-8">
+            {projects.map((project) => (
+              <article
+                key={project.title}
+                className="rounded-3xl border border-gray-200 bg-white p-10 shadow-sm"
+              >
+                <p className="text-indigo-700 text-sm mb-5">
+                  {project.eyebrow}
                 </p>
-              </div>
 
-              <div className="rounded-2xl border border-gray-200 p-5 bg-white shadow-sm">
-                <h3 className="font-semibold mb-2">
-                  Geometry-aware and drift-aware aggregation
-                </h3>
-                <p className="text-gray-700 leading-7">
-                  Designing server-side aggregation rules that use interpretable
-                  signals from client updates to improve stability and
-                  robustness.
+                <h2 className="text-4xl font-semibold leading-tight mb-6">
+                  {project.title}
+                </h2>
+
+                <p className="text-gray-700 text-xl leading-9">
+                  {project.description}
                 </p>
-              </div>
-
-              <div className="rounded-2xl border border-gray-200 p-5 bg-white shadow-sm">
-                <h3 className="font-semibold mb-2">
-                  Reproducible ML research systems
-                </h3>
-                <p className="text-gray-700 leading-7">
-                  Building structured experimentation pipelines that support
-                  publication-standard outputs, faster iteration, and
-                  technically disciplined research execution.
-                </p>
-              </div>
-            </div>
+              </article>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* Research Timeline */}
-      <section className="bg-gray-50 border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-6 md:px-8 py-16">
-          <p className="text-sm uppercase tracking-[0.18em] text-indigo-700 mb-3 font-medium">
-            Research Timeline
-          </p>
-          <h2 className="text-2xl md:text-3xl font-semibold tracking-tight mb-10">
-            Research development and current trajectory
-          </h2>
-
-          <div className="grid gap-5">
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-              <p className="text-sm text-gray-500 mb-2">PhD Research</p>
-              <h3 className="text-lg font-semibold mb-2">
-                Federated learning for smart systems
-              </h3>
-              <p className="text-gray-700 leading-7">
-                Doctoral work focused on privacy-aware decentralized learning,
-                heterogeneity, and robust optimization in federated settings.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-              <p className="text-sm text-gray-500 mb-2">Current Research Direction</p>
-              <h3 className="text-lg font-semibold mb-2">
-                Geometry, drift, and instability in federated learning
-              </h3>
-              <p className="text-gray-700 leading-7">
-                Extending research into update geometry, aggregation design,
-                LoRA-based decentralized adaptation, and the mechanisms that
-                govern failure under heterogeneity.
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-gray-200 bg-white p-6 shadow-sm">
-              <p className="text-sm text-gray-500 mb-2">Research Engineering</p>
-              <h3 className="text-lg font-semibold mb-2">
-                Publication-standard reproducible ML systems
-              </h3>
-              <p className="text-gray-700 leading-7">
-                Building strong technical infrastructure to support clean
-                experimentation, reproducibility, benchmarking, and disciplined
-                research execution.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Selected Work */}
-      <section className="bg-white border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-6 md:px-8 py-16">
-          <div className="flex items-end justify-between mb-10 gap-6">
-            <div>
-              <p className="text-sm uppercase tracking-[0.18em] text-indigo-700 mb-3 font-medium">
-                Selected Work
-              </p>
-              <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
-                Research & Projects
-              </h2>
-            </div>
-
-            <Link
-              href="/projects"
-              className="text-sm md:text-base underline underline-offset-4 hover:text-indigo-700 transition"
-            >
-              See all projects
-            </Link>
-          </div>
-
-          <div className="grid gap-6">
-            <article className="rounded-2xl border border-gray-200 bg-white p-7 shadow-sm hover:shadow-lg transition duration-200">
-              <h3 className="text-xl font-semibold mb-3">
-                <Link
-                  href="/projects/federated-learning-smart-systems"
-                  className="hover:text-indigo-700 transition"
-                >
-                  Geometry-Aware Federated LoRA under Heterogeneity
-                </Link>
-              </h3>
-              <p className="text-gray-700 leading-8">
-                Developed a research-grade federated fine-tuning framework for
-                LoRA-based language models, showing that early-round client
-                update geometry strongly predicts convergence quality under
-                heterogeneous data and motivating geometry-aware aggregation.
-              </p>
-            </article>
-
-            <article className="rounded-2xl border border-gray-200 bg-white p-7 shadow-sm hover:shadow-lg transition duration-200">
-              <h3 className="text-xl font-semibold mb-3">
-                <Link
-                  href="/projects/reproducible-ml-infrastructure"
-                  className="hover:text-indigo-700 transition"
-                >
-                  Drift-Aware Adaptive Aggregation for Federated Learning
-                </Link>
-              </h3>
-              <p className="text-gray-700 leading-8">
-                Designed a lightweight server-side aggregation strategy that
-                adaptively reweights client updates according to their drift
-                from the consensus direction, providing an interpretable
-                mechanism for more robust federated aggregation.
-              </p>
-            </article>
-
-            <article className="rounded-2xl border border-gray-200 bg-white p-7 shadow-sm hover:shadow-lg transition duration-200">
-              <h3 className="text-xl font-semibold mb-3">
-                <Link
-                  href="/projects/publication-standard-ml-systems"
-                  className="hover:text-indigo-700 transition"
-                >
-                  Reproducible ML Research Infrastructure
-                </Link>
-              </h3>
-              <p className="text-gray-700 leading-8">
-                Built publication-standard machine learning workflows with
-                modular experimentation, clear benchmarking structure, and clean
-                technical organization to support rigorous iteration,
-                reproducibility, and high-quality research delivery.
-              </p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      {/* Publications */}
-      <section className="bg-gray-50 border-b border-gray-200">
-        <div className="max-w-6xl mx-auto px-6 md:px-8 py-16">
-          <div className="flex items-end justify-between mb-10 gap-6">
-            <div>
-              <p className="text-sm uppercase tracking-[0.18em] text-indigo-700 mb-3 font-medium">
-                Publications & Output
-              </p>
-              <h2 className="text-2xl md:text-3xl font-semibold tracking-tight">
-                Selected Publications & Technical Work
-              </h2>
-            </div>
-
-            <Link
-              href="/projects"
-              className="text-sm md:text-base underline underline-offset-4 hover:text-indigo-700 transition"
-            >
-              Related projects
-            </Link>
-          </div>
-
-          <div className="grid gap-5">
-            <div className="rounded-2xl border border-gray-200 p-6 bg-white shadow-sm">
-              <p className="text-sm text-gray-500 mb-2">Research Study</p>
-              <h3 className="font-semibold text-lg mb-2">
-                When Federated LoRA Fails: Geometry Dynamics and Instability under Heterogeneity
-              </h3>
-              <p className="text-gray-700 leading-7 mb-3">
-                Research study on federated LoRA showing that early-round
-                geometric properties of client updates strongly predict final
-                performance under heterogeneity, alongside a geometry-aware
-                aggregation method.
-              </p>
-              <p className="text-sm text-gray-500">
-                Federated Learning • LoRA • Update Geometry • Robust Aggregation
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-gray-200 p-6 bg-white shadow-sm">
-              <p className="text-sm text-gray-500 mb-2">Technical Report</p>
-              <h3 className="font-semibold text-lg mb-2">
-                Drift-Aware Adaptive Aggregation for Federated Learning under Client Data Heterogeneity
-              </h3>
-              <p className="text-gray-700 leading-7 mb-3">
-                Technical report introducing a lightweight drift-aware
-                aggregation rule that uses deviation from the mean update
-                direction as a signal for more robust federated aggregation.
-              </p>
-              <p className="text-sm text-gray-500">
-                Federated Learning • Drift Modeling • Aggregation • Non-IID Learning
-              </p>
-            </div>
-
-            <div className="rounded-2xl border border-dashed border-gray-300 p-6 bg-white">
-              <p className="text-sm text-gray-500 mb-2">Ongoing Output</p>
-              <h3 className="font-semibold text-lg mb-2">
-                Additional publications, write-ups, and research notes
-              </h3>
-              <p className="text-gray-700 leading-7">
-                This section will continue to grow with new research papers,
-                technical reports, and project-linked outputs as work develops.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Closing */}
-      <section className="bg-white">
-        <div className="max-w-6xl mx-auto px-6 md:px-8 py-16">
-          <div className="max-w-4xl">
-            <p className="text-sm uppercase tracking-[0.18em] text-indigo-700 mb-3 font-medium">
-              Research Direction
-            </p>
-            <h2 className="text-2xl md:text-4xl font-semibold tracking-tight mb-5 leading-tight">
-              Building reliable machine learning under heterogeneity and privacy constraints
+      {/* RESEARCH STATEMENT */}
+      <section className="border-y border-gray-200 bg-white">
+        <div className="mx-auto max-w-7xl px-6 md:px-10 py-24">
+          <div className="max-w-5xl">
+            <h2 className="text-5xl md:text-6xl font-semibold tracking-tight leading-tight mb-10">
+              Building reliable machine learning under heterogeneity and privacy
+              constraints
             </h2>
-            <p className="text-gray-700 leading-8 text-base md:text-lg">
+
+            <p className="text-2xl leading-[1.9] text-gray-700">
               My work sits at the intersection of federated learning,
               privacy-preserving machine learning, robust optimization, and
               reproducible research engineering. I’m particularly interested in
@@ -423,6 +205,144 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* SELECTED WORK */}
+      <section className="py-24">
+        <div className="mx-auto max-w-7xl px-6 md:px-10">
+          <div className="mb-14">
+            <p className="text-sm uppercase tracking-[0.25em] text-indigo-700 mb-4">
+              Selected Work
+            </p>
+
+            <h2 className="text-5xl md:text-6xl font-semibold tracking-tight">
+              Research Projects
+            </h2>
+          </div>
+
+          <div className="grid md:grid-cols-2 gap-8">
+            {selectedProjects.map((project) => (
+              <article
+                key={project.title}
+                className="rounded-3xl border border-gray-200 bg-white p-10 shadow-sm"
+              >
+                <h3 className="text-3xl font-semibold mb-5">
+                  <Link
+                    href={project.href}
+                    className="hover:text-indigo-700 transition"
+                  >
+                    {project.title}
+                  </Link>
+                </h3>
+
+                <p className="text-gray-700 text-lg leading-8 mb-8">
+                  {project.description}
+                </p>
+
+                <Link
+                  href={project.href}
+                  className="underline underline-offset-4 hover:text-indigo-700 transition"
+                >
+                  View project
+                </Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* PUBLICATIONS */}
+      <section className="border-t border-gray-200 bg-white">
+        <div className="mx-auto max-w-7xl px-6 md:px-10 py-24">
+          <div className="mb-14">
+            <p className="text-sm uppercase tracking-[0.25em] text-indigo-700 mb-4">
+              Publications & Output
+            </p>
+
+            <h2 className="text-5xl md:text-6xl font-semibold tracking-tight">
+              Research Direction
+            </h2>
+          </div>
+
+          <div className="space-y-10">
+            <div className="border-b border-gray-200 pb-10">
+              <h3 className="text-2xl font-semibold mb-3">
+                Early Dynamics and Stability in Federated Learning under Non-IID
+                Data
+              </h3>
+
+              <p className="text-gray-700 text-lg leading-8">
+                Investigating whether early-round training dynamics can predict
+                final convergence behavior and instability in heterogeneous
+                federated learning environments.
+              </p>
+            </div>
+
+            <div className="border-b border-gray-200 pb-10">
+              <h3 className="text-2xl font-semibold mb-3">
+                Client-Specific Personalization Depth in Federated Learning
+              </h3>
+
+              <p className="text-gray-700 text-lg leading-8">
+                Studying personalization depth as a client-level decision
+                problem and evaluating oracle routing headroom under
+                heterogeneous federated distributions.
+              </p>
+            </div>
+
+            <div>
+              <h3 className="text-2xl font-semibold mb-3">
+                Ongoing Output
+              </h3>
+
+              <p className="text-gray-700 text-lg leading-8">
+                Active work includes aggregation geometry, federated LoRA,
+                adaptive optimization, personalization strategies, and
+                publication-grade ML experimentation systems.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* FOOTER */}
+      <footer className="border-t border-gray-200 bg-[#f5f5f3]">
+        <div className="mx-auto max-w-7xl px-6 md:px-10 py-12 flex flex-col md:flex-row justify-between gap-8">
+          <div>
+            <h3 className="text-2xl font-semibold mb-2">
+              Dr Victor Obarafor (PhD)
+            </h3>
+
+            <p className="text-gray-700">
+              Privacy-Preserving Machine Learning Researcher
+            </p>
+          </div>
+
+          <div className="flex flex-wrap gap-8 text-lg">
+            <a
+              href="https://github.com/vicobarafor"
+              target="_blank"
+              className="hover:text-indigo-700 transition"
+            >
+              GitHub
+            </a>
+
+            <a
+              href="https://uk.linkedin.com/in/victor-obarafor-phd-b73b96178"
+              target="_blank"
+              className="hover:text-indigo-700 transition"
+            >
+              LinkedIn
+            </a>
+
+            <a
+              href="mailto:vicobarafor@gmail.com"
+              className="hover:text-indigo-700 transition"
+            >
+              vicobarafor@gmail.com
+            </a>
+          </div>
+        </div>
+      </footer>
     </main>
   );
 }
